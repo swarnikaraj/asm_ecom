@@ -15,16 +15,16 @@ public class Book {
 
 	private String bookPrice;
 	
-	private String categories;
+	private String category;
 	
 	private String bookDescription;
 
-	public String getCategories() {
-		return categories;
+	public String getCategory() {
+		return category;
 	}
 
-	public void setCategories(String categories) {
-		this.categories = categories;
+	public void setCategories(String category) {
+		this.category = category;
 	}
 
 	public String getBookId() {

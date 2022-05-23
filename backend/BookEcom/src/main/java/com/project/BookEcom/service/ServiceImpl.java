@@ -23,7 +23,6 @@ public class ServiceImpl implements Service {
 		if (books.isPresent()) {
 			throw new BookCollectionException(BookCollectionException.BookAlreadyExists());
 		} else {
-//			todo.setCreatedAt(new Date(System.currentTimeMillis()));
 			bookRepo.save(book);
 		}
 	}
@@ -58,6 +57,26 @@ public class ServiceImpl implements Service {
 			bookRepo.deleteById(id);
 		}
 
+	}
+
+	@Override
+	public List<Book> getBooksByCat(String cat) throws BookCollectionException {
+		List<Book> books = bookRepo.findByCategory(cat);
+		if(books.size() > 0) {
+			return books;
+		}else {
+			return new ArrayList<>();
+		}
+	}
+	
+	@Override
+	public List<Book> getBooksByAuthName(String authName) throws BookCollectionException {
+		List<Book> books = bookRepo.findByAuthName(authName);
+		if(books.size() > 0) {
+			return books;
+		}else {
+			return new ArrayList<>();
+		}
 	}
 
 }
