@@ -10,6 +10,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 
 import { CartComponent } from './cart/cart.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -18,12 +19,24 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
 
+    children: [],
+  },
+  { path: 'register', component: AddUserComponent },
+  {
+    path: 'login',
+    component: LoginComponent,
     children: [{ path: 'register', component: AddUserComponent }],
   },
 
-  { path: '**', component: NotFoundPageComponent },
+  {
+    path: 'profile/:id',
+    component: ProfileComponent,
+    children: [{ path: 'cart', component: CartComponent }],
+  },
 
-  { path: 'profle/:id', component: ProfileComponent },
+  { path: 'cart', component: CartComponent },
+
+  { path: '**', component: NotFoundPageComponent },
 ];
 
 @NgModule({

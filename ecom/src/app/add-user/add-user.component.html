@@ -21,35 +21,6 @@
           class="bg-gray-100 rounded-tl-md rounded-tr-md px-4 md:px-8 md:py-4 py-7 flex items-center justify-between"
         >
           <p class="text-base font-semibold">Create New User</p>
-          <button
-            role="button"
-            aria-label="close label"
-            (click)="modalBtn()"
-            class="focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 focus:outline-none"
-          >
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 28 28"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M21 7L7 21"
-                stroke="#A1A1AA"
-                stroke-width="1.75"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-              <path
-                d="M7 7L21 21"
-                stroke="#A1A1AA"
-                stroke-width="1.75"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-            </svg>
-          </button>
         </div>
         <div class="px-4 md:px-10 pt-6 md:pt-12 md:pb-4 pb-7">
           <div class="flex items-center justify-center">
@@ -141,11 +112,12 @@
             <button
               role="button"
               aria-label="close button"
-              (click)="modalBtn()"
+              routerLink=""
               class="focus:ring-2 focus:ring-offset-2 focus:bg-gray-600 focus:ring-gray-600 focus:outline-none px-6 py-3 bg-gray-600 hover:bg-gray-500 shadow rounded text-sm text-white"
             >
               Cancel
             </button>
+
             <button
               aria-label="add user"
               role="button"
