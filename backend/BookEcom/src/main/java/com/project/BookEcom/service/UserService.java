@@ -16,6 +16,8 @@ public interface UserService {
 	public void addBookToCart(Book book, String userId) throws UserCollectionException;
 	
 	public void deleteBookFromCart(String bookId, String userId);
+	
+	public List<Book> showCart(String userId) throws UserCollectionException;
 
 	public List<User> getAllUsers();
 	

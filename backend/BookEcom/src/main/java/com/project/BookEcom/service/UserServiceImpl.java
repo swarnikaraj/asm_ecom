@@ -1,5 +1,6 @@
 package com.project.BookEcom.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,17 +45,32 @@ public class UserServiceImpl implements UserService {
 	}
 
 
-
-	@Override
-	public List<User> getAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	@Override
 	public void deleteBookFromCart(String bookId, String userId) {
 		
 		
 	}
+
+	@Override
+	public List<User> getAllUsers() {
+		List<User> users = userRepo.findAll();
+		if (users.size() > 0) {
+			return users;
+		} else {
+			return new ArrayList<User>();
+		}	
+	}
+
+	@Override
+	public List<Book> showCart(String userId) throws UserCollectionException {
+		User user = userRepo.findByUserId(userId);
+		if(user != null) {
+			List<Book> books = user.getIssuedBooks();
+			return books;
+		}else {
+			throw new UserCollectionException(UserCollectionException.UserNotFoundException(userId));
+		}
+	}
+	
 
 }

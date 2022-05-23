@@ -1,5 +1,7 @@
 package com.project.BookEcom.model;
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,10 +11,13 @@ public class Book {
 	@Id
 	private String bookId;
 
+	@NotNull(message = "BookName cannot be null")
 	private String bookName;
 
+	@NotNull(message = "BookAuthorName cannot be null")
 	private String bookAuthorName;
-
+	
+	@NotNull(message = "BookPrice cannot be empty")
 	private String bookPrice;
 	
 	private String category;
