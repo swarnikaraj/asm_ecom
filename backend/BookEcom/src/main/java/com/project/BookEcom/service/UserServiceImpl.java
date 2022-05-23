@@ -25,7 +25,6 @@ public class UserServiceImpl implements UserService {
 		if (users.isPresent()) {
 			throw new UserCollectionException(UserCollectionException.UserAlreadyExists());
 		} else {
-//			todo.setCreatedAt(new Date(System.currentTimeMillis()));
 			userRepo.save(user);
 		}
 		
@@ -42,6 +41,14 @@ public class UserServiceImpl implements UserService {
 			throw new UserCollectionException(UserCollectionException.UserNotFoundException(userId));
 		}
 		
+	}
+
+
+
+	@Override
+	public List<User> getAllUsers() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override

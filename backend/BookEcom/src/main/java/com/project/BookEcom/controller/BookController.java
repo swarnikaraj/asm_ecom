@@ -16,13 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.project.BookEcom.exception.BookCollectionException;
 import com.project.BookEcom.model.Book;
-import com.project.BookEcom.service.Service;
+import com.project.BookEcom.service.BookService;
+
 
 @RestController
 public class BookController {
 
 	@Autowired
-	private Service bookService;
+	private BookService bookService;
 
 	@GetMapping("/allBooks")
 	public ResponseEntity<?> getAllBooks() {

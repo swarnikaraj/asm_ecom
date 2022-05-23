@@ -7,7 +7,7 @@ import javax.validation.ConstraintViolationException;
 import com.project.BookEcom.exception.BookCollectionException;
 import com.project.BookEcom.model.Book;
 
-public interface Service {
+public interface BookService {
 
 	public void createBook(Book book) throws ConstraintViolationException, BookCollectionException;
 

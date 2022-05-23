@@ -7,12 +7,15 @@ import java.util.Optional;
 import javax.validation.ConstraintViolationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.project.BookEcom.book.repository.BookRepository;
 import com.project.BookEcom.exception.BookCollectionException;
 import com.project.BookEcom.model.Book;
 
-public class ServiceImpl implements Service {
+
+@Service
+public class ServiceImpl implements BookService {
 
 	@Autowired
 	private BookRepository bookRepo;
@@ -78,5 +81,6 @@ public class ServiceImpl implements Service {
 			return new ArrayList<>();
 		}
 	}
+
 
 }
