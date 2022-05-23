@@ -16,4 +16,8 @@ public interface Service {
 	public Book getSingleBook(String id) throws BookCollectionException;
 
 	public void deleteBookById(String id) throws BookCollectionException;
+
+	public List<Book> getBooksByCat(String cat) throws BookCollectionException;
+
+	List<Book> getBooksByAuthName(String authName) throws BookCollectionException;
 }
