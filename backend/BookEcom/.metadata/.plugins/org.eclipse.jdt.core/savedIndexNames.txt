@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+/Users/18745/Documents/GitHub/asm_ecom/backend/BookEcom/.metadata/.plugins/org.eclipse.jdt.core
+2429041133.index
+1816963510.index
+3819335444.index
+1865797976.index

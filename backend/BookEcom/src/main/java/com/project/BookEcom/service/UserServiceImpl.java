@@ -5,15 +5,14 @@ import java.util.Optional;
 
 import javax.validation.ConstraintViolationException;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.project.BookEcom.exception.UserCollectionException;
 import com.project.BookEcom.model.Book;
 import com.project.BookEcom.model.User;
 import com.project.BookEcom.user.repository.UserRepository;
 
-@Service
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
@@ -25,7 +24,7 @@ public class UserServiceImpl implements UserService {
 		if (users.isPresent()) {
 			throw new UserCollectionException(UserCollectionException.UserAlreadyExists());
 		} else {
-//			todo.setCreatedAt(new Date(System.currentTimeMillis()));
+
 			userRepo.save(user);
 		}
 		
@@ -49,5 +48,7 @@ public class UserServiceImpl implements UserService {
 		
 		
 	}
+
+ 
 
 }
