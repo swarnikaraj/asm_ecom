@@ -23,12 +23,12 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@PostMapping("/addUsers")
-	public ResponseEntity<?> allUsers() {
-		List<User> users = userService.getAllUsers();
+	// @PostMapping("/addUsers")
+	// public ResponseEntity<?> allUsers() {
+	// 	List<User> users = userService.getAllUsers();
 
-		return new ResponseEntity<>(users, users.size() > 0 ? HttpStatus.OK : HttpStatus.NOT_FOUND);
-	}
+	// 	return new ResponseEntity<>(users, users.size() > 0 ? HttpStatus.OK : HttpStatus.NOT_FOUND);
+	// }
 	
 	@GetMapping("/allUsers")
 	public ResponseEntity<?> allUsers() {
