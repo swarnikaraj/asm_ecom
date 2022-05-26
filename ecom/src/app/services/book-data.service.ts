@@ -53,7 +53,7 @@ export class BookDataService {
   }
 
   paginate(pageNo: any) {
-    return this.http.get(this.url + 'books/' + 'pagination/' + pageNo + '/10');
+    return this.http.get(this.url + 'books/' + 'pagination/' + pageNo);
   }
 
   getSortByField(field: any) {
