@@ -11,7 +11,7 @@ export class CartComponent implements OnInit {
   bag: any[] = [];
 
   totalCost: number = 0;
-  constructor(private bookData: BookDataService, private router:Router) {
+  constructor(private bookData: BookDataService, private router: Router) {
     const bagdata = this.bookData.getBag();
     this.bag = bagdata;
 
@@ -21,8 +21,20 @@ export class CartComponent implements OnInit {
     console.log(this.bag, 'lo mai bag hu aa gya');
   }
 
-  redirect(){
+  redirect() {}
 
+  removeItem(id: any) {
+    let bg = this.bookData.removeCartItem(id);
+    this.bag = bg;
+   this.totalCost=0;
+    for (let i = 0; i < this.bag.length; i++) {
+      this.totalCost = this.totalCost + Number(this.bag[i].bookPrice);
+    }
+
+  }
+ 
+  checkout(){
+   
   }
 
   ngOnInit(): void {}

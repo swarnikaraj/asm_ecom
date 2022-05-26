@@ -1,4 +1,6 @@
-<nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6">
+<nav
+  class="flex fixed items-center justify-between flex-wrap bg-gray-800 p-6 z-50 left-0 right-0 top-0 border-b"
+>
   <div class="flex items-center flex-shrink-0 text-white mr-6">
     <svg
       class="fill-current h-8 w-8 mr-2"
@@ -54,7 +56,7 @@
         routerLink="cart"
         class="w-8 h-5 inline-block text-sm leading-none border rounded items-center text-gray-500 bg-white hover:border-transparent hover:bg-white mt-4 lg:mt-0"
       >
-        <span>{{ cartNum }}</span>
+        <span> {{ cartNum() }}</span>
         <img
           class="w-8 h-5"
           src="https://cdn0.iconfinder.com/data/icons/angular-shopping/30/shopping_033-shopping_cart-goods-product-full-strolley-512.png"
@@ -76,35 +78,6 @@
   </div>
 </nav>
 
-<div
-  class="text-gray-300 w-full hidden lg:flex pl-4 pr-4 pt-4 pb-4 items-center justify-between justify-items-center bg-[rgb(31,41,55)] border-t border-b"
->
-  <div *ngFor="let cat of catList" class="hover:text-gray-400">
-    {{ cat }}
-  </div>
-</div>
-
-<div
-  class="text-gray-300 w-full hidden lg:flex pl-4 pr-4 pt-4 pb-4 items-center justify-between justify-items-center bg-[rgb(31,41,55)] border-t border-b"
->
-  <div class="hover:text-gray-400" (click)="highToRating()">
-    High to Low Rate
-  </div>
-
-  <div class="hover:text-gray-400 w-1/2">
-    <input
-      placeholder="Search Books"
-      class="pl-4 pr-4 pt-1 pb-1 w-full"
-      (change)="searchBooks(searchString)"
-      id="searchString"
-      name="searchString"
-      [(ngModel)]="searchString"
-    />
-  </div>
-
-  <div class="hover:text-gray-400" (click)="showTopRated()">Top Rated</div>
-</div>
-{{ searchString }}
 <router-outlet></router-outlet>
- 
+
 <app-footer></app-footer>

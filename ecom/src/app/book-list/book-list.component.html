@@ -1,14 +1,47 @@
-<div class="2xl:container 2xl:mx-auto">
+<div
+  class="text-gray-300 w-full z-20 hidden fixed top-20 lg:flex pl-4 pr-4 pt-4 pb-4 items-center justify-between justify-items-center bg-[rgb(31,41,55)] border-white border-b"
+>
+  <div class="hover:text-gray-400" (click)="getSortedByField('rating')">
+    High to Low Rate
+  </div>
+
+  <div class="hover:text-gray-400 w-1/2">
+    <app-search></app-search>
+  </div>
+
+  <div class="hover:text-gray-400" (click)="noFilter()">No Filters</div>
+</div>
+
+<div
+  class="text-gray-300 z-10 fixed top-36 w-full hidden lg:flex pl-4 pr-4 pt-4 pb-4 items-center justify-between justify-items-center bg-[rgb(31,41,55)] border-t border-b"
+>
+  <div
+    *ngFor="let cat of catList"
+    class="hover:text-gray-400"
+    (click)="getFilterByCat(cat)"
+  >
+    {{ cat }}
+  </div>
+</div>
+
+<div class="2xl:container 2xl:mx-auto mt-60">
   <div class="py-6 lg:px-20 md:px-6 px-4">
     <div
       class="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-y-12 lg:gap-x-8 sm:gap-y-10 sm:gap-x-6 gap-y-6 lg:mt-12 mt-10"
     >
-      <div *ngFor="let book of books" class="relative">
+      <div
+        *ngFor="let book of books"
+        class="relative shadow-lg shadow-[rgba(78,107,235,0.6)] pl-2 pr-2"
+      >
         <div class="relative group bg-slate-500">
           <div
             class="flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-800 via-gray-800 to-opacity-30 group-hover:opacity-50 absolute top-0 left-0 h-full w-full"
           ></div>
-          <img class="w-full" src="{{ book.url }}" alt="A Book" />
+          <img
+            class="w-full rounded-tl-full shadow-lg shadow-[rgba(78,107,235,0.6)]"
+            src="{{ book.url }}"
+            alt="A Book"
+          />
           <div
             class="absolute bottom-0 p-8 w-full opacity-0 group-hover:opacity-100"
           >
@@ -31,6 +64,10 @@
         <p class="font-normal text-xl leading-5 text-gray-800 md:mt-6 mt-4">
           {{ book.bookName }}
         </p>
+        <p class="font-semibold text-xl leading-5 text-gray-800 mt-4">
+          Rating:{{ " " + book.rating }} start
+        </p>
+
         <p class="font-semibold text-xl leading-5 text-gray-800 mt-4">
           $ {{ book.bookPrice }}
         </p>

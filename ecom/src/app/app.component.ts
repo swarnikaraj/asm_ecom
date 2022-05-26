@@ -8,7 +8,7 @@ import { BookDataService } from './services/book-data.service';
 })
 export class AppComponent {
   title = 'Ecom';
-  cartNum: number = 0;
+  
   bookList:any;
   catList:any[]=[];
   constructor(private bookData: BookDataService) {
@@ -23,29 +23,14 @@ export class AppComponent {
 
     }
 
-    this.cartNum = bookData.cartNum;
   })
 }
-  searchString: String = '';
+  
+ cartNum(){
+   return this.bookData.getCartNum();
+ }
 
-
-  filterByCat() {
-    console.log('filter applied');
-  }
-  filterByAuth() {
-    console.log('filter applied');
-  }
-  highToRating() {
-    console.log('filter applied');
-  }
-
-  showTopRated() {
-    console.log('filter applied');
-  }
-
-  searchBooks(search: any) {
-    console.log(search);
-  }
+  
 
 
 

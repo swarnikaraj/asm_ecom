@@ -28,6 +28,10 @@ export class BookDataService {
     });
   }
 
+  getFilterByCat(cat: any) {
+    return this.http.get(this.url + 'books/' + cat);
+  }
+
   getbook(id: any) {
     return this.http.get(this.url + 'book/' + id);
   }
@@ -51,4 +55,24 @@ export class BookDataService {
   paginate(pageNo: any) {
     return this.http.get(this.url + 'books/' + 'pagination/' + pageNo + '/10');
   }
+
+  getSortByField(field: any) {
+    return this.http.get(this.url + 'books/' + 'sort/' + field);
+  }
+
+  getSearchData(word: any) {
+    return this.http.get(this.url + 'books/' + 'search/' + word);
+  }
+
+  getCartNum(){
+    return this.bag.length;
+  }
+
+  removeCartItem(id:any){
+     this.bag=this.bag.filter((i)=>i.bookId!=id)
+
+     return this.bag;
+     
+  }
+
 }

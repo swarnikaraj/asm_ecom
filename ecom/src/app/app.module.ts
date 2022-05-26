@@ -22,6 +22,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { AuthSecurityService } from './services/auth-security.service';
 import { AuthGuard } from './auth-guard.guard';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { AuthInterceptor } from './services/auth.interceptor';
     DashBookListComponent,
     EditFormComponent,
     PaymentComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
