@@ -53,7 +53,7 @@ export class BookDataService {
   }
 
   paginate(pageNo: any) {
-    return this.http.get(this.url + 'books/' + 'pagination/' + pageNo + '/10');
+    return this.http.get(this.url + 'books/' + 'pagination/' + pageNo);
   }
 
   getSortByField(field: any) {
@@ -64,15 +64,13 @@ export class BookDataService {
     return this.http.get(this.url + 'books/' + 'search/' + word);
   }
 
-  getCartNum(){
+  getCartNum() {
     return this.bag.length;
   }
 
-  removeCartItem(id:any){
-     this.bag=this.bag.filter((i)=>i.bookId!=id)
+  removeCartItem(id: any) {
+    this.bag = this.bag.filter((i) => i.bookId != id);
 
-     return this.bag;
-     
+    return this.bag;
   }
-
 }
