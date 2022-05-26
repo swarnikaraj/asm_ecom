@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AddBookComponent } from '../add-book/add-book.component';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
   isList: number = 5;
   isMenu: boolean = false;
-  isSearch: boolean = false;
+ 
   constructor() {}
 
   ngOnInit(): void {}

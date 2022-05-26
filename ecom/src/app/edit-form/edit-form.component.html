@@ -1,0 +1,35 @@
+<div class="shadow-2xl p-6 w-full">
+  <form >
+    <div class="p-2 m-2 border-2">
+      <input type="text" placeholder="Book Name" formControlName="name" />
+    
+    </div>
+
+    <div class="p-2 m-2 border-2">
+      <input type="text" placeholder="Author Name" formControlName="author" />
+      
+    </div>
+
+    <div class="p-2 m-2 border-2">
+      <input type="number" placeholder="Price" formControlName="price" />
+      
+    </div>
+
+    <div class="p-2 m-2 border-2">
+      <select formControlName="category">
+        <option value="Physics">Physics</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="Maths">Maths</option>
+      </select>
+      
+    </div>
+    <div class="p-2 m-2">
+      <button
+        type="submit"
+        class="bg-[rgb(31,41,55)] w-full hover:bg-slate-600 text-gray-200 py-2"
+      >
+        Done
+      </button>
+    </div>
+  </form>
+</div>

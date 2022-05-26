@@ -1,0 +1,356 @@
+<nav class="w-full bg-gray-800 hidden xl:block shadow">
+  <div
+    class="container px-6 h-16 flex justify-between items-center lg:items-stretch mx-auto"
+  >
+    <div class="flex items-center">
+      <div class="mr-10 flex items-center">
+        <h3
+          class="text-base text-white font-bold tracking-normal leading-tight ml-3 hidden lg:block"
+        >
+          BookStore
+        </h3>
+      </div>
+      <ul class="hidden xl:flex items-center h-full">
+        <li
+          class="cursor-pointer h-full flex items-center text-sm text-gray-100 transition duration-150 ease-in-out"
+        >
+          <a routerLink="dashboard"> Dashboard </a>
+        </li>
+        <li
+          class="cursor-pointer h-full flex items-center text-sm hover:text-gray-600 text-white mx-10 transition duration-150 ease-in-out"
+        >
+          <a routerLink="dashboard/books"> Books </a>
+        </li>
+
+        <li
+          class="cursor-pointer h-full flex items-center text-sm hover:text-gray-600 text-white mx-10 t transition duration-150 ease-in-out"
+        >
+          Users
+        </li>
+
+        <li
+          class="cursor-pointer h-full flex items-center text-sm hover:text-gray-600 text-white max-10 transition duration-150 ease-in-out"
+        >
+          Orders
+        </li>
+      </ul>
+    </div>
+    <div class="h-full hidden xl:flex items-center justify-end">
+      <div class="h-full flex">
+        <div
+          class="flex items-center pl-8 relative cursor-pointer"
+          onclick="dropdownHandler(this)"
+        >
+          <ul
+            class="p-2 w-40 border-r bg-white absolute rounded left-0 shadow mt-16 top-0 hidden"
+          >
+            <li
+              class="cursor-pointer text-gray-100 text-sm leading-3 tracking-normal py-2 hover:text-gray-600 focus:text-gray-600 focus:outline-none"
+            >
+              <div class="flex items-center">
+                <span class="ml-2">My Profile</span>
+              </div>
+            </li>
+
+            <li
+              class="cursor-pointer text-gray-100 text-sm leading-3 tracking-normal mt-2 py-2 hover:text-gray-600 flex items-center focus:text-gray-600 focus:outline-none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-settings"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" />
+                <path
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <span class="ml-2">Account Settings</span>
+            </li>
+          </ul>
+          <img
+            class="rounded h-10 w-10 object-cover"
+            src="https://tse3.mm.bing.net/th?id=OIP.hxRValICG6OlXI56NUfSjAHaF1&pid=Api&P=0&w=225&h=177"
+            alt="logo"
+          />
+          <p class="text-white text-sm ml-2">Swarnnika</p>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center xl:hidden">
+      <ul
+        class="p-2 border-r bg-white absolute rounded top-0 left-0 right-0 shadow mt-16 md:mt-16 hidden"
+      >
+        <li
+          class="flex md:hidden cursor-pointer text-gray-100 text-sm leading-3 tracking-normal mt-2 py-2 hover:text-gray-600 focus:text-gray-600 focus:outline-none"
+        >
+          <div class="flex items-center">
+            <span class="ml-2 font-bold">
+              <a routerLink="/dashboard"> Dashboard </a>
+            </span>
+          </div>
+        </li>
+        <li
+          class="flex md:hidden flex-col cursor-pointer text-gray-100 text-sm leading-3 tracking-normal py-2 hover:text-gray-600 focus:text-gray-600 focus:outline-none justify-center"
+        >
+          <div class="flex items-center">
+            <a routerLink="dashboard/books">
+              <span class="ml-2 font-bold">Books</span>
+            </a>
+          </div>
+        </li>
+        <li
+          class="flex md:hidden cursor-pointer text-gray-100 text-sm leading-3 tracking-normal py-2 hover:bg-gray-600 items-center focus:text-gray-600 focus:outline-none"
+        >
+          <span class="ml-2 font-bold">Users</span>
+        </li>
+        <li
+          class="border-b border-gray-300 flex md:hidden flex-col cursor-pointer text-gray-600 text-sm leading-3 tracking-normal pt-2 pb-4 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none flex justify-center"
+        >
+          <div class="flex items-center">
+            <span class="ml-2 font-bold">Orders</span>
+          </div>
+        </li>
+        <li
+          class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-2 py-2 hover:bg-gray-600 flex items-center focus:text-gray-600 focus:outline-none"
+        >
+          <div class="flex items-center">
+            <div
+              class="w-12 cursor-pointer flex text-sm border-2 border-transparent rounded focus:outline-none focus:border-white transition duration-150 ease-in-out"
+            >
+              <img
+                class="rounded h-10 w-10 object-cover"
+                src="https://tse3.mm.bing.net/th?id=OIP.hxRValICG6OlXI56NUfSjAHaF1&pid=Api&P=0&w=225&h=177"
+                alt="logo"
+              />
+            </div>
+            <p class="text-sm ml-2 cursor-pointer">Swarnnika</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<nav>
+  <div
+    class="py-4 px-6 w-full flex xl:hidden justify-between items-center bg-gray-800 fixed top-0 z-40"
+  >
+    <div class="w-24 text-gray-100">
+      <span>BookStore</span>
+    </div>
+    <div>
+      <div id="menu" class="text-white" (click)="isMenu = true">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-menu-2"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <line x1="4" y1="6" x2="20" y2="6" />
+          <line x1="4" y1="12" x2="20" y2="12" />
+          <line x1="4" y1="18" x2="20" y2="18" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div
+    *ngIf="isMenu"
+    class="absolute w-full h-full z-40 xl:hidden"
+    id="mobile-nav"
+  >
+    <div
+      class="bg-gray-800 opacity-50 w-full h-full"
+      (click)="isMenu = false"
+    ></div>
+    <div
+      class="w-64 z-40 fixed overflow-y-auto top-0 bg-gray-800 shadow h-full flex-col justify-between xl:hidden pb-4 transition duration-150 ease-in-out"
+    >
+      <div class="px-6 h-full">
+        <div class="flex flex-col justify-between h-full w-full">
+          <div>
+            <div class="mt-6 flex w-full items-center justify-between">
+              <div class="flex items-center justify-between w-full">
+                <div class="flex items-center">
+                  <p class="text-base text-white ml-3">BookStore</p>
+                </div>
+                <div id="cross" class="text-white" (click)="isMenu = false">
+                  <button type="reset">close</button>
+                </div>
+              </div>
+            </div>
+            <ul class="f-m-m">
+              <a>
+                <li class="text-white pt-10">
+                  <div class="flex items-center">
+                    <p class="text-text-600 xl:text-base text-base ml-3">
+                      <a routerLink="/dashboard"> Dashboard </a>
+                    </p>
+                  </div>
+                </li>
+              </a>
+              <a routerLink="books">
+                <li class="text-white pt-8">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                      <p class="text-white xl:text-base text-base ml-3">
+                        <a routerLink="/dashboard/books"> Books </a>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              </a>
+
+              <li class="text-white pt-8">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+                    <p class="text-white xl:text-base text-base ml-3">Orders</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="w-full pt-4">
+            <div class="border-t border-gray-700">
+              <div class="w-full flex items-center justify-between pt-1">
+                <div class="flex items-center">
+                  <img
+                    alt="profile-pic"
+                    src="https://tuk-cdn.s3.amazonaws.com/assets/components/boxed_layout/bl_1.png"
+                    class="w-8 h-8 rounded-md"
+                  />
+                  <p class="text-white text-base leading-4 ml-2">Swarnnika</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div
+  class="mx-auto container bg-white dark:bg-gray-800 shadow rounded items-center"
+>
+  <div class="w-full overflow-x-scroll xl:overflow-x-hidden">
+    <table class="min-w-full bg-white dark:bg-gray-800">
+      <thead>
+        <tr class="w-full h-16 border-gray-300 border-b py-8">
+          <th
+            class="pl-8 text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm"
+          >
+            Book Name
+          </th>
+          <th
+            class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm"
+          >
+            Price
+          </th>
+          <th
+            class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm"
+          >
+            Delete
+          </th>
+          <th
+            class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm"
+          >
+            Edit
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let book of books" class="bg-gray-100 border-gray-300 h-2">
+          <td
+            class="pl-8 text-sm pr-6 whitespace-no-wrap text-gray-800 leading-4"
+          >
+            {{ book.bookName }}
+          </td>
+
+          <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 leading-4">
+            $ {{ book.bookPrice }}
+          </td>
+
+          <td
+            class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm leading-4"
+          >
+            <button
+              (click)="del(book.bookId)"
+              class="text-red-500 border-transparent border cursor-pointer rounded focus:outline-none focus:shadow-outline-gray"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon cursor-pointer icon-tabler icon-tabler-trash"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" />
+                <line x1="4" y1="7" x2="20" y2="7" />
+                <line x1="10" y1="11" x2="10" y2="17" />
+                <line x1="14" y1="11" x2="14" y2="17" />
+                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+              </svg>
+            </button>
+          </td>
+
+          <td
+            class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm leading-4"
+          >
+            <button
+              id="{{ book.bookId }}"
+              (click)="letEdit(book.bookId)"
+              class="text-gray-600 dark:text-gray-400 border-transparent cursor-pointer rounded focus:outline-none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon cursor-pointer icon-tabler icon-tabler-edit"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" />
+                <path
+                  d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"
+                />
+                <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                <line x1="16" y1="5" x2="19" y2="8" />
+              </svg>
+            </button>
+            <div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

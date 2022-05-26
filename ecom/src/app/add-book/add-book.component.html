@@ -1,0 +1,70 @@
+<div
+  class="flex items-center justify-items-center border-2 sm:flex-col md:flex-row lg:flex-row flex-wrap"
+>
+  <div class="ml-40 mt-20 mb-20">
+    <iframe
+      src="https://giphy.com/embed/uCAyUXGyZhVFUA68ol"
+      width="480"
+      height="480"
+      frameBorder="0"
+      allowFullScreenclass="flex items-center justify-between pt-1"
+    ></iframe>
+  </div>
+
+  <div class="pt-10 pl-40 p-r-40 pb-40">
+    <p class="m-4 text-center font-bold text-xl text-gray-600">Add Books</p>
+    <div class="shadow-2xl p-6 w-full">
+      <form [formGroup]="addForm" (ngSubmit)="onSubmit(addForm.value)">
+        <div class="p-2 m-2 border-2">
+          <input type="text" placeholder="Book Name" formControlName="name" />
+          <span style="color: red" *ngIf="name && name.invalid && name.touched"
+            >This is invalid name</span
+          >
+        </div>
+
+        <div class="p-2 m-2 border-2">
+          <input
+            type="text"
+            placeholder="Author Name"
+            formControlName="author"
+          />
+          <span
+            style="color: red"
+            *ngIf="author && author.invalid && author.touched"
+            >This is invalid Author name</span
+          >
+        </div>
+
+        <div class="p-2 m-2 border-2">
+          <input type="number" placeholder="Price" formControlName="price" />
+          <span
+            style="color: red"
+            *ngIf="price && price.invalid && price.touched"
+            >This is invalid price</span
+          >
+        </div>
+
+        <div class="p-2 m-2 border-2">
+          <select formControlName="category">
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Maths">Maths</option>
+          </select>
+          <span
+            style="color: red"
+            *ngIf="category && category.invalid && category.touched"
+            >This is invalid category
+          </span>
+        </div>
+        <div class="p-2 m-2">
+          <button
+            type="submit"
+            class="bg-[rgb(31,41,55)] w-full hover:bg-slate-600 text-gray-200 py-2"
+          >
+            Done
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

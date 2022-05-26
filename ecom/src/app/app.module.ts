@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -11,6 +11,17 @@ import { CartComponent } from './cart/cart.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { LoginComponent } from './login/login.component';
+import { SingleBookComponent } from './single-book/single-book.component';
+import { AddBookComponent } from './add-book/add-book.component';
+import { FooterComponent } from './footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DashBookListComponent } from './dash-book-list/dash-book-list.component';
+import { EditFormComponent } from './edit-form/edit-form.component';
+import { FormsModule } from '@angular/forms';
+import { PaymentComponent } from './payment/payment.component';
+import { AuthSecurityService } from './services/auth-security.service';
+import { AuthGuard } from './auth-guard.guard';
+import { AuthInterceptor } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,13 +33,22 @@ import { LoginComponent } from './login/login.component';
     CartComponent,
     ProfileComponent,
     BookListComponent,
-    LoginComponent
+    LoginComponent,
+    SingleBookComponent,
+    AddBookComponent,
+    FooterComponent,
+    DashBookListComponent,
+    EditFormComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthSecurityService, AuthGuard, [{provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}]],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
