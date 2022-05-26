@@ -20,7 +20,6 @@ export class AppComponent {
     for(let i=0;i<this.bookList.length;i++){
       let t= this.bookList[i].category;
       if(!this.catList.includes(t)){this.catList.push(t)}
-
     }
 
     this.cartNum = bookData.cartNum;
@@ -46,7 +45,5 @@ export class AppComponent {
   searchBooks(search: any) {
     console.log(search);
   }
-
-
 
 }

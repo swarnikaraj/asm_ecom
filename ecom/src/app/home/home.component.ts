@@ -20,12 +20,10 @@ export class HomeComponent implements OnInit {
   isSearch: boolean = false;
 
   constructor(private bookData: BookDataService) {
-    bookData.books().subscribe((data) => {
-      console.log(data, 'mai home page me hu');
-    });
+    // bookData.books().subscribe((data) => {
+    //   console.log(data, 'mai home page me hu');
+    // });
   }
-
-  
 
   ngOnInit(): void {}
 }
