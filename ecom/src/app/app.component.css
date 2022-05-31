@@ -1,0 +1,10 @@
+#cartnum {
+  margin-left: 30px;
+  color: red;
+}
+
+.cart {
+  position: relative;
+  top: -36%;
+}
+

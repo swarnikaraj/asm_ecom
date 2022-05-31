@@ -1,5 +1,5 @@
 <div
-  class="w-full h-full bg-black bg-opacity-90 top-0 overflow-y-auto overflow-x-hidden fixed sticky-0"
+  class="w-full h-full bg-black bg-opacity-90 top-10 overflow-y-auto overflow-x-hidden fixed sticky-0"
   id="chec-div"
 >
   <div
@@ -56,9 +56,6 @@
             />
           </div>
           <div class="md:pl-3 md:w-8/12 2xl:w-3/4 flex flex-col justify-center">
-            <p class="text-xs leading-3 text-gray-800 md:pt-0 pt-4">
-              {{ bg.bookId }}
-            </p>
             <div class="flex items-center justify-between w-full pt-1">
               <p class="text-base font-black leading-none text-gray-800">
                 {{ bg.bookName }}
@@ -122,7 +119,7 @@
                 ${{ totalCost }}
               </p>
             </div>
-            <a routerLink="/payment">
+            <a (click)="checkout()">
               <button
                 class="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white"
               >

@@ -14,21 +14,34 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { SingleBookComponent } from './single-book/single-book.component';
 import { PaymentComponent } from './payment/payment.component';
+import { MyordersComponent } from './myorders/myorders.component';
+import { AuthGuard } from './auth-guard.guard';
 
 const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuard],
   },
 
-  { path: 'dashboard/books', component: DashBookListComponent },
+  {
+    path: 'dashboard/books',
+    component: DashBookListComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'myorders',
+    component: MyordersComponent,
+    canActivate: [AuthGuard],
+  },
 
   {
     path: '',
     component: HomeComponent,
-
     children: [],
   },
+
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
 
   { path: 'register', component: AddUserComponent },
   {
@@ -45,9 +58,9 @@ const routes: Routes = [
     children: [{ path: 'cart', component: CartComponent }],
   },
 
-  { path: 'cart', component: CartComponent },
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
 
-  { path: 'payment', component: PaymentComponent },
+  { path: 'payment', component: PaymentComponent, canActivate: [AuthGuard] },
 
   { path: '**', component: NotFoundPageComponent },
 ];

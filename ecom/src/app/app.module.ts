@@ -23,6 +23,7 @@ import { AuthSecurityService } from './services/auth-security.service';
 import { AuthGuard } from './auth-guard.guard';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { SearchComponent } from './search/search.component';
+import { MyordersComponent } from './myorders/myorders.component';
 
 @NgModule({
   declarations: [
@@ -42,15 +43,20 @@ import { SearchComponent } from './search/search.component';
     EditFormComponent,
     PaymentComponent,
     SearchComponent,
+    MyordersComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [AuthSecurityService, AuthGuard, [{provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}]],
+  providers: [
+    AuthSecurityService,
+    AuthGuard,
+    [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

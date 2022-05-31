@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { BookDataService } from '../services/book-data.service';
-// import { fromEvent, Observable } from 'rxjs';
-// import { ajax } from 'rxjs/ajax';
+import { fromEvent, Observable } from 'rxjs';
+import { ajax } from 'rxjs/ajax';
 
 import {
   debounceTime,
@@ -27,9 +27,6 @@ export class SearchComponent implements OnInit {
   }
   searchBooks(event: any) {
     var st = event.target.value;
-
-    
-
     this.str = st;
     if (st.length > 2) {
       this.bookData.getSearchData(st).subscribe((data) => {
@@ -43,20 +40,18 @@ export class SearchComponent implements OnInit {
   takeToOneSearch() {}
 
   ngOnInit(): void {
-    // const searchBox = document.getElementById('searchbox') as HTMLInputElement;
-    // const typeahead = fromEvent(searchBox, 'input').pipe(
-    //   map((e) => (e.target as HTMLInputElement).value),
-    //   filter((text) => text.length > 2),
-    //   debounceTime(3000),
-    //   distinctUntilChanged(),
-    //   switchMap((searchTerm) =>
-    //     ajax(`http://localhost:8080/books/search${searchTerm}`)
-    //   )
-    // );
-
-    // typeahead.subscribe((data) => {
-    //   console.log(data);
-    // });
-
+    const searchBox = document.getElementById('searchbox') as HTMLInputElement;
+    const typeahead = fromEvent(searchBox, 'input').pipe(
+      map((e) => (e.target as HTMLInputElement).value),
+      filter((text) => text.length > 2),
+      debounceTime(3000),
+      distinctUntilChanged(),
+      switchMap((searchTerm) =>
+        ajax(`http://localhost:8080/books/search${searchTerm}`)
+      )
+    );
+    typeahead.subscribe((data) => {
+      console.log(data);
+    });
   }
 }

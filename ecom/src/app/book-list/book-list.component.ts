@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { BookDataService } from '../services/book-data.service';
 
 import { SearchComponent } from '../search/search.component';
+import { AuthSecurityService } from '../services/auth-security.service';
+import { UserDataService } from '../services/user-data.service';
 
 @Component({
   selector: 'app-book-list',
@@ -10,6 +12,7 @@ import { SearchComponent } from '../search/search.component';
   styleUrls: ['./book-list.component.css'],
 })
 export class BookListComponent implements OnInit {
+  isUserLoggedIn: boolean = false;
   books: any = [];
   pageData: any;
   pageNo: number = 0;
@@ -21,7 +24,11 @@ export class BookListComponent implements OnInit {
   catList: any[] = [];
   searchString: String = '';
 
-  constructor(private bookData: BookDataService) {
+  constructor(
+    private bookData: BookDataService,
+    private authService: AuthSecurityService,
+    private userService: UserDataService
+  ) {
     this.bookData.books().subscribe((data) => {
       this.bookList = data;
 
@@ -41,8 +48,16 @@ export class BookListComponent implements OnInit {
       console.log(res);
     });
   }
-  addTobag(book: any) {
-    this.bookData.addToBag(book);
+  addTobag(bookId: any) {
+    this.userService.addToBag(bookId).subscribe(
+      (res) => {
+        console.log('book added to cart');
+        this.authService.changeNoOfBooks(this.authService.noOfBooksInCart + 1);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
   prevPage() {
     this.pageNo--;
@@ -97,5 +112,7 @@ export class BookListComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isUserLoggedIn = this.authService.isUserLoggedIn();
+  }
 }

@@ -1,0 +1,69 @@
+<div
+  class="mx-auto container bg-white dark:bg-gray-800 shadow rounded items-center mt-20"
+>
+  <div class="w-full overflow-x-scroll xl:overflow-x-hidden">
+    <table class="min-w-full bg-white dark:bg-gray-800">
+      <thead>
+        <tr class="w-full h-16 border-gray-300 border-b py-8">
+          <th
+            class="pl-8 text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm"
+          ></th>
+          <th
+            class="pl-8 text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm"
+          >
+            Book Name
+          </th>
+          <th
+            class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm"
+          >
+            Price
+          </th>
+          <!-- <th
+            class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm"
+          >
+            Quantity
+          </th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="bg-gray-100 border-gray-300 h-2"
+          *ngFor="let book of orders"
+          class="list"
+        >
+          <td
+            class="pl-8 text-sm pr-6 whitespace-no-wrap text-gray-800 leading-4"
+          >
+            <img src="{{ book.url }}" alt="Unique book" class="bookimage" />
+          </td>
+          <td
+            class="pl-8 text-sm pr-6 whitespace-no-wrap text-gray-800 leading-4"
+          >
+            {{ book.bookName }}
+          </td>
+
+          <td class="text-sm pr-6 whitespace-no-wrap text-gray-800 leading-4">
+            {{ book.bookPrice }}
+          </td>
+
+          <!-- <td
+            class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm leading-4"
+          >
+            l
+          </td>
+
+          <td
+            class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm leading-4"
+          >
+            0
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br /><br /><br />
+<br /><br /><br />
+<br /><br /><br />
+<br /><br /><br />
+<br /><br />

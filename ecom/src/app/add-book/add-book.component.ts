@@ -9,36 +9,57 @@ import { BookDataService } from '../services/book-data.service';
 })
 export class AddBookComponent implements OnInit {
   addForm = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    price: new FormControl('', [Validators.required]),
-    author: new FormControl('', [Validators.required]),
+    bookName: new FormControl('', [Validators.required]),
+    bookPrice: new FormControl('', [Validators.required]),
+    bookAuthorName: new FormControl('', [Validators.required]),
     category: new FormControl('', [Validators.required]),
+    quantity: new FormControl('', [Validators.required]),
+    url: new FormControl('', [Validators.required]),
+    bookDescription: new FormControl('', [Validators.required]),
+    rating: new FormControl('', [Validators.required]),
   });
 
-  constructor(private contactData: BookDataService) {}
+  constructor(private bookData: BookDataService) {}
 
   ngOnInit(): void {}
 
   onSubmit(data: any) {
     console.log(data);
     console.log(this.addForm.value, 'Hello');
-    this.contactData.saveBook(data).subscribe((data) => console.log(data));
-    alert('Contact has been added');
+    this.bookData.saveBook(data).subscribe((data) => console.log(data));
+    alert('Book has been added');
+    this.addForm.reset();
   }
 
-  get name() {
+  get bookName() {
     return this.addForm.get('name');
   }
 
-  get price() {
+  get bookPrice() {
     return this.addForm.get('price');
   }
 
-  get author() {
+  get bookAuthorName() {
     return this.addForm.get('author');
   }
 
   get category() {
+    return this.addForm.get('category');
+  }
+
+  get quantity() {
+    return this.addForm.get('category');
+  }
+
+  get url() {
+    return this.addForm.get('category');
+  }
+
+  get bookDescription() {
+    return this.addForm.get('category');
+  }
+
+  get rating() {
     return this.addForm.get('category');
   }
 }

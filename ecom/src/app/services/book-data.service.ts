@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { HttpClient } from '@angular/common/http';
+import { AuthSecurityService } from './auth-security.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,24 +13,27 @@ export class BookDataService {
   bag: any[] = [];
 
   cartNum = 0;
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthSecurityService
+  ) {}
 
   books() {
     return this.http.get(this.url + 'allbooks');
   }
 
   saveBook(data: any) {
-    return this.http.post(this.url + 'addBook', data);
+    return this.http.post(this.url + 'addbook', data, { responseType: 'text' });
   }
 
   delMe(id: any) {
-    return this.http.delete(`http://localhost:8080/book/${id}`, {
+    return this.http.get(`http://localhost:8080/book/delete/${id}`, {
       responseType: 'text',
     });
   }
 
   getFilterByCat(cat: any) {
-    return this.http.get(this.url + 'books/' + cat);
+    return this.http.get(this.url + 'books/category/' + cat);
   }
 
   getbook(id: any) {
@@ -38,18 +42,6 @@ export class BookDataService {
 
   numberOFbooks() {
     return this.http.get(this.url + 'allBooks');
-  }
-
-  addToBag(data: any) {
-    this.bag.push(data);
-
-    console.log(this.bag, 'Mai bag me aa gya ');
-    this.cartNum++;
-    return this.bag;
-  }
-
-  getBag() {
-    return this.bag;
   }
 
   paginate(pageNo: any) {
@@ -68,9 +60,9 @@ export class BookDataService {
     return this.bag.length;
   }
 
-  removeCartItem(id: any) {
-    this.bag = this.bag.filter((i) => i.bookId != id);
-
-    return this.bag;
+  updateBook(id: any, book: any) {
+    return this.http.post(this.url + 'book/' + 'update/' + id, book, {
+      responseType: 'text',
+    });
   }
 }

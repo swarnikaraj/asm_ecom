@@ -13,7 +13,7 @@ public class BookCollectionException extends Exception {
 	}
 	
 	public static String CategoryNotFound(String cat) {
-		return "No books of "+cat+ "category is available";
+		return "No books of "+cat+ " category is available";
 	}
 	
 	public static String AuthorNotFound(String authName) {
@@ -22,6 +22,10 @@ public class BookCollectionException extends Exception {
 	
 	public static String BookAlreadyExists(){
 		return "Book with given name already exists";
+	}
+	
+	public static String BookOutOfStock(){
+		return "Book is out of stock";
 	}
 
 }

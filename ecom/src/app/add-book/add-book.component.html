@@ -4,20 +4,26 @@
   <div class="ml-40 mt-20 mb-20">
     <iframe
       src="https://giphy.com/embed/uCAyUXGyZhVFUA68ol"
-      width="480"
+      width="450"
       height="480"
       frameBorder="0"
       allowFullScreenclass="flex items-center justify-between pt-1"
     ></iframe>
   </div>
 
-  <div class="pt-10 pl-40 p-r-40 pb-40">
+  <div class="pt-6 pl-40 p-r-40 pb-40 edit">
     <p class="m-4 text-center font-bold text-xl text-gray-600">Add Books</p>
     <div class="shadow-2xl p-6 w-full">
       <form [formGroup]="addForm" (ngSubmit)="onSubmit(addForm.value)">
         <div class="p-2 m-2 border-2">
-          <input type="text" placeholder="Book Name" formControlName="name" />
-          <span style="color: red" *ngIf="name && name.invalid && name.touched"
+          <input
+            type="text"
+            placeholder="Book Name"
+            formControlName="bookName"
+          />
+          <span
+            style="color: red"
+            *ngIf="bookName && bookName.invalid && bookName.touched"
             >This is invalid name</span
           >
         </div>
@@ -26,29 +32,79 @@
           <input
             type="text"
             placeholder="Author Name"
-            formControlName="author"
+            formControlName="bookAuthorName"
           />
           <span
             style="color: red"
-            *ngIf="author && author.invalid && author.touched"
+            *ngIf="
+              bookAuthorName && bookAuthorName.invalid && bookAuthorName.touched
+            "
             >This is invalid Author name</span
           >
         </div>
 
         <div class="p-2 m-2 border-2">
-          <input type="number" placeholder="Price" formControlName="price" />
+          <input
+            type="number"
+            placeholder="Price"
+            formControlName="bookPrice"
+          />
           <span
             style="color: red"
-            *ngIf="price && price.invalid && price.touched"
+            *ngIf="bookPrice && bookPrice.invalid && bookPrice.touched"
             >This is invalid price</span
           >
         </div>
 
         <div class="p-2 m-2 border-2">
+          <input
+            type="number"
+            placeholder="Quantity"
+            formControlName="quantity"
+          />
+          <span
+            style="color: red"
+            *ngIf="quantity && quantity.invalid && quantity.touched"
+            >This is invalid quantity</span
+          >
+        </div>
+
+        <div class="p-2 m-2 border-2">
+          <input
+            type="textArea"
+            placeholder="Description"
+            formControlName="bookDescription"
+          />
+          <span
+            style="color: red"
+            *ngIf="
+              bookDescription &&
+              bookDescription.invalid &&
+              bookDescription.touched
+            "
+            >This is invalid description</span
+          >
+        </div>
+
+        <div class="p-2 m-2 border-2">
+          <input type="text" placeholder="Image URL" formControlName="url" />
+          <span style="color: red" *ngIf="url && url.invalid && url.touched"
+            >This is invalid URL</span
+          >
+        </div>
+
+        <div class="p-2 m-2 border-2">
           <select formControlName="category">
-            <option value="Physics">Physics</option>
-            <option value="Chemistry">Chemistry</option>
-            <option value="Maths">Maths</option>
+            <option value="">Select</option>
+            <option value="Physics">Literary Fiction</option>
+            <option value="Chemistry">Psycology</option>
+            <option value="Maths">Mathematics</option>
+            <option value="Maths">Action and Adventure</option>
+            <option value="Maths">Classic</option>
+            <option value="Maths">Geography</option>
+            <option value="Maths">True Crime</option>
+            <option value="Maths">Constitution</option>
+            <option value="Maths">History</option>
           </select>
           <span
             style="color: red"
@@ -56,10 +112,21 @@
             >This is invalid category
           </span>
         </div>
+
+        <div class="p-2 m-2 border-2">
+          <input type="number" placeholder="Rating" formControlName="rating" />
+          <span
+            style="color: red"
+            *ngIf="rating && rating.invalid && rating.touched"
+            >This is invalid rating</span
+          >
+        </div>
+
         <div class="p-2 m-2">
           <button
             type="submit"
             class="bg-[rgb(31,41,55)] w-full hover:bg-slate-600 text-gray-200 py-2"
+            [disabled]="!addForm.valid"
           >
             Done
           </button>

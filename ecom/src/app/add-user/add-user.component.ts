@@ -1,43 +1,60 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { UserDataService } from '../services/user-data.service';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { FormGroup, FormControl, Validators, NgForm } from "@angular/forms";
+import { Router } from "@angular/router";
+import { UserDataService } from "../services/user-data.service";
 @Component({
-  selector: 'app-add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.css'],
+  selector: "app-add-user",
+  templateUrl: "./add-user.component.html",
+  styleUrls: ["./add-user.component.css"],
 })
 export class AddUserComponent implements OnInit {
+  @ViewChild("form") signupForm: NgForm | undefined;
   modal: boolean = false;
   modalBtn() {
     this.modal = !this.modal;
   }
 
-  addForm = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-   
-  });
+  // user:Object={
+  //   name: "",
+  //   password: ""
+  // }
 
-  constructor(private userData:UserDataService) {}
+  user: any = {
+    userName: "",
+    password: "",
+  };
+
+  constructor(private userData: UserDataService, private route: Router) {}
 
   ngOnInit(): void {}
 
-  onSubmit(data: any) {
-    console.log(data)
+  formdata() {
+    console.log(this.user);
+    this.userData.saveUser(this.user).subscribe(
+      (res) => {
+        alert("Succcesfully subscribed");
+        this.route.navigate(["login"]);
+      },
+      (err) => {
+        console.log(err);
+        alert("User already exist, Please use unique UserName");
+        this.route.navigate(["/register"]);
+      }
+    );
   }
+  // get name() {
+  //   return this.addForm.get('name');
+  // }
 
-  get name() {
-    return this.addForm.get('name');
-  }
+  // get price() {
+  //   return this.addForm.get('price');
+  // }
 
-  get price() {
-    return this.addForm.get('price');
-  }
+  // get author() {
+  //   return this.addForm.get('author');
+  // }
 
-  get author() {
-    return this.addForm.get('author');
-  }
-
-  get category() {
-    return this.addForm.get('category');
-  }
+  // get category() {
+  //   return this.addForm.get('category');
+  // }
 }

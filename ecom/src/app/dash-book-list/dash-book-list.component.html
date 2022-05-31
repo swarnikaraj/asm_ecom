@@ -37,10 +37,7 @@
     </div>
     <div class="h-full hidden xl:flex items-center justify-end">
       <div class="h-full flex">
-        <div
-          class="flex items-center pl-8 relative cursor-pointer"
-          onclick="dropdownHandler(this)"
-        >
+        <div class="flex items-center pl-8 relative cursor-pointer">
           <ul
             class="p-2 w-40 border-r bg-white absolute rounded left-0 shadow mt-16 top-0 hidden"
           >
@@ -113,7 +110,7 @@
           <span class="ml-2 font-bold">Users</span>
         </li>
         <li
-          class="border-b border-gray-300 flex md:hidden flex-col cursor-pointer text-gray-600 text-sm leading-3 tracking-normal pt-2 pb-4 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none flex justify-center"
+          class="border-b border-gray-300 md:hidden flex-col cursor-pointer text-gray-600 text-sm leading-3 tracking-normal pt-2 pb-4 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none flex justify-center"
         >
           <div class="flex items-center">
             <span class="ml-2 font-bold">Orders</span>
@@ -250,7 +247,7 @@
   class="mx-auto container bg-white dark:bg-gray-800 shadow rounded items-center"
 >
   <div class="w-full overflow-x-scroll xl:overflow-x-hidden">
-    <table class="min-w-full bg-white dark:bg-gray-800">
+    <table *ngIf="!editMode" class="min-w-full bg-white dark:bg-gray-800">
       <thead>
         <tr class="w-full h-16 border-gray-300 border-b py-8">
           <th
@@ -275,7 +272,6 @@
           </th>
         </tr>
       </thead>
-
       <tbody>
         <tr *ngFor="let book of books" class="bg-gray-100 border-gray-300 h-2">
           <td
@@ -292,7 +288,7 @@
             class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm leading-4"
           >
             <button
-              (click)="del(book.bookId)"
+              (click)="del(book.bookId, book.bookName)"
               class="text-red-500 border-transparent border cursor-pointer rounded focus:outline-none focus:shadow-outline-gray"
             >
               <svg
@@ -322,7 +318,7 @@
           >
             <button
               id="{{ book.bookId }}"
-              (click)="letEdit(book.bookId)"
+              (click)="setEditMode(book.bookId, book)"
               class="text-gray-600 dark:text-gray-400 border-transparent cursor-pointer rounded focus:outline-none"
             >
               <svg
@@ -350,6 +346,91 @@
         </tr>
       </tbody>
     </table>
+    <div *ngIf="editMode">
+      <div class="shadow-2xl p-6 w-full">
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)">
+          <div class="p-2 m-2 border-2">
+            <input
+              type="text"
+              placeholder="Book Name"
+              formControlName="bookName"
+              [(ngModel)]="tempBook.Name"
+            />
+          </div>
+          <div class="p-2 m-2 border-2">
+            <input
+              type="text"
+              placeholder="Category"
+              formControlName="category"
+              [(ngModel)]="tempBook.category"
+            />
+          </div>
+
+          <div class="p-2 m-2 border-2">
+            <input
+              type="text"
+              placeholder="Author Name"
+              formControlName="bookAuthorName"
+              [(ngModel)]="tempBook.bookAuthorName"
+            />
+          </div>
+
+          <div class="p-2 m-2 border-2">
+            <input
+              type="number"
+              placeholder="Price"
+              formControlName="bookPrice"
+              [(ngModel)]="tempBook.bookPrice"
+            />
+          </div>
+
+          <div class="p-2 m-2 border-2">
+            <input
+              type="number"
+              placeholder="quantity"
+              formControlName="quantity"
+              [(ngModel)]="tempBook.quantity"
+            />
+          </div>
+
+          <div class="p-2 m-2 border-2">
+            <input
+              type="text"
+              placeholder="image url"
+              formControlName="url"
+              [(ngModel)]="tempBook.url"
+            />
+          </div>
+
+          <div class="p-2 m-2 border-2">
+            <input
+              type="text"
+              placeholder="book description"
+              formControlName="bookDescription"
+              [(ngModel)]="tempBook.bookDescription"
+            />
+          </div>
+
+          <div class="p-2 m-2 border-2">
+            <input
+              type="number"
+              placeholder="rating"
+              formControlName="rating"
+              [(ngModel)]="tempBook.rating"
+            />
+          </div>
+
+          <div class="p-2 m-2">
+            <button
+              type="submit"
+              class="bg-[rgb(31,41,55)] w-full hover:bg-slate-600 text-gray-200 py-2"
+            >
+              Done
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 

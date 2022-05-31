@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { BookListComponent } from '../book-list/book-list.component';
+import { AuthSecurityService } from '../services/auth-security.service';
 
 import { BookDataService } from '../services/book-data.service';
 
@@ -19,11 +20,9 @@ export class HomeComponent implements OnInit {
   }
   isSearch: boolean = false;
 
-  constructor(private bookData: BookDataService) {
-    // bookData.books().subscribe((data) => {
-    //   console.log(data, 'mai home page me hu');
-    // });
+  constructor(private bookData: BookDataService,private authService:AuthSecurityService) {
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }
